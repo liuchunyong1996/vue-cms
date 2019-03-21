@@ -1,7 +1,7 @@
 <template>
   <div class="fly">
     <van-swipe
-      :autoplay="3000"
+      :autoplay="3000" 
       indicator-color="white"
       class="myswiper"
     >
