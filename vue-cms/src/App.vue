@@ -5,7 +5,7 @@
       left-text="返回"
       right-text="按钮"
       left-arrow
-      fixed
+      fixed 
      @click-left="onClickLeft"
      @click-right="onClickRight"
     />
