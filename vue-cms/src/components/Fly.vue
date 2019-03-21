@@ -1,14 +1,14 @@
 <template>
   <div class="fly">
     <van-swipe
-      :autoplay="3000" 
+      :autoplay="3000"
       indicator-color="white"
       class="myswiper"
     >
       <van-swipe-item class="item" v-for="item in lunbolist" :key="item.img">
         <img :src="item.img" alt="">
       </van-swipe-item>
-      
+
     </van-swipe>
     <!-- 轮播图 -->
     <!-- 九宫格 -->
@@ -17,33 +17,32 @@
 </template>
 
 <script>
-import {Toast} from "vant"
-import Gird from "../Subcomponents/Gird"
+import {Toast} from 'vant'
+import Gird from '../Subcomponents/Gird'
 export default {
-  components : {
+  components: {
     Gird
   },
   data: () => ({
-    lunbolist : []
+    lunbolist: []
 
   }),
-  created(){
-     this.getlunbo()
+  created () {
+    this.getlunbo()
   },
   methods: {
-    getlunbo(){
-     this.$http.get("api/getlunbo").then(res=>{
-           const {data:{status,message} }= res
-           if(status ===0){
-             this.lunbolist = message
-             
-           }else{
-             Toast("图片错误")
-           }
-     })
+    getlunbo () {
+      this.$http.get('api/getlunbo').then(res => {
+        const {data: {status, message} } = res
+        if (status === 0) {
+          this.lunbolist = message
+        }else {
+          Toast('图片错误')
+        }
+      })
     }
   }
-};
+}
 </script>
 
 <style lang='less' scoped>
@@ -55,6 +54,6 @@ export default {
       height :100%;
     }
   }
-  
+
 }
 </style>
