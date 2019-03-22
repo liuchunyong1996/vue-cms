@@ -5,8 +5,15 @@
       indicator-color="white"
       class="myswiper"
     >
-      <van-swipe-item class="item" v-for="item in lunbolist" :key="item.img">
-        <img :src="item.img" alt="">
+      <van-swipe-item
+        class="item"
+        v-for="item in lunbolist"
+        :key="item.img"
+      >
+        <img
+          :src="item.img"
+          alt=""
+        >
       </van-swipe-item>
 
     </van-swipe>
@@ -17,7 +24,7 @@
 </template>
 
 <script>
-import {Toast} from 'vant'
+import { Toast } from 'vant'
 import Gird from '../Subcomponents/Gird'
 export default {
   components: {
@@ -25,7 +32,6 @@ export default {
   },
   data: () => ({
     lunbolist: []
-
   }),
   created () {
     this.getlunbo()
@@ -33,10 +39,12 @@ export default {
   methods: {
     getlunbo () {
       this.$http.get('api/getlunbo').then(res => {
-        const {data: {status, message} } = res
+        const {
+          data: { status, message }
+        } = res
         if (status === 0) {
           this.lunbolist = message
-        }else {
+        } else {
           Toast('图片错误')
         }
       })
@@ -50,10 +58,9 @@ export default {
   height: 200px;
   .item {
     img {
-      width:100%;
-      height :100%;
+      width: 100%;
+      height: 100%;
     }
   }
-
 }
 </style>
